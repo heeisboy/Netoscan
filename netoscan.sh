@@ -2,6 +2,8 @@
 
 PREFIX="${1:-NOT_SET}"
 INTERFACE="$2"
+SUBNET="$3"
+HOST="$4"
 
 trap "echo '--- Ctrl+C pressed, exiting ---'; exit 1" 2 # При получении сигнала прерывания выходим из скрипта
 
@@ -15,7 +17,6 @@ if [[ -z "$INTERFACE" ]]; then
     echo "\$INTERFACE must be passed as second positional argument"
     exit 1
 fi
-
 for SUBNET in {1..255}
 do
 	for HOST in {1..255}
